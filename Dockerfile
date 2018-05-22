@@ -20,9 +20,8 @@ RUN apk update \
     && echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "[www]">>/usr/local/etc/php-fpm.d/dev-www.conf \
-    && echo "php_admin_flag[log_errors] = on">>/usr/local/etc/php-fpm.d/dev-www.conf \
-    && echo "php_admin_value[error_reporting] = E_ALL & ~E_NOTICE & ~E_WARNING & ~E_STRICT & ~E_DEPRECATED">>/usr/local/etc/php-fpm.d/dev-www.conf \
+    && echo "php_admin_flag[log_errors] = on">>/usr/local/etc/php-fpm.d/www.conf \
+    && echo "php_admin_value[error_reporting] = E_ALL">>/usr/local/etc/php-fpm.d/www.conf \
     && rm -r /usr/src/ \
     && rm /usr/local/bin/phpdbg \
     && apk del .build-deps
