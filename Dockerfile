@@ -3,11 +3,12 @@ FROM php:7.2-fpm-alpine3.7
 MAINTAINER Will Riches <will@rich.es>
 
 RUN apk update \
-    && apk add --update --no-cache --virtual .build-deps autoconf make g++ \
+    && apk add --update --no-cache libpng \
+    && apk add --update --no-cache --virtual .build-deps autoconf make g++ libpng-dev \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && ln -snf /usr/share/zoneinfo/Europe/London /etc/localtime && echo Europe/London > /etc/timezone \
     && printf '[PHP]\ndate.timezone = "%s"\n', Europe/London > /usr/local/etc/php/conf.d/tzone.ini \
-    && docker-php-ext-install pdo pdo_mysql opcache mysqli exif \
+    && docker-php-ext-install pdo pdo_mysql opcache mysqli exif gd \
     && pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis \
