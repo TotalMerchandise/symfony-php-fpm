@@ -16,8 +16,8 @@ RUN apk update \
     && pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis \
-    && pecl install xdebug-2.6.0beta1 \
-    && docker-php-ext-enable xdebug \
+    && pecl install xdebug-2.6.0beta1 apcu \
+    && docker-php-ext-enable xdebug apcu \
     && echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
