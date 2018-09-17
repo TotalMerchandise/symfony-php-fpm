@@ -7,4 +7,4 @@ A PHP 7 FPM container designed to run Symfony applications
 * pdo, pdo_mysql, opcache mysqli, exif, and redis extensions
 * XDebug
 
-[View in Docker Hub](https://hub.docker.com/r/riches/symfony-php-fpm/)
+[View in Docker Hub](https://hub.docker.com/r/totalmerchandise/symfony-php-fpm/)
