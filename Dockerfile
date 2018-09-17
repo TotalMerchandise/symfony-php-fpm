@@ -1,4 +1,4 @@
-FROM php:7.2-fpm-alpine3.7
+FROM php:7.2-fpm-alpine3.8
 
 MAINTAINER Will Riches <will@rich.es>
 
